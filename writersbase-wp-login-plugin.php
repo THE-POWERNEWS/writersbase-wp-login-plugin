@@ -7,7 +7,6 @@
   Author: Tatsuya Koishi
   Author URI: https://github.com/pooza
  */
-require_once ABSPATH . '/wp-includes/class-phpass.php';
 
 if (!function_exists('wp_hash_password')) {
   function wp_hash_password($password) {
@@ -17,8 +16,10 @@ if (!function_exists('wp_hash_password')) {
 
 if (!function_exists('wp_check_password')) {
   function wp_check_password($password, $hash, $uid = '') {
-  	$hasher = new PasswordHash( 8, true );
-	  return apply_filters(
+    require_once ABSPATH . '/wp-includes/class-phpass.php';
+    $hasher = new PasswordHash( 8, true );
+
+    return apply_filters(
       'check_password',
       password_verify($password, $hash) || $hasher->CheckPassword($password, $hash),
       $password,
