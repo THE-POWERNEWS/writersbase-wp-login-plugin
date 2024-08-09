@@ -10,14 +10,14 @@
 
 if (!function_exists('wp_hash_password')) {
   function wp_hash_password($password) {
-    return password_hash($password);
+    return password_hash($password, PASSWORD_DEFAULT);
   }
 }
 
 if (!function_exists('wp_check_password')) {
   function wp_check_password($password, $hash, $uid = '') {
     require_once ABSPATH . '/wp-includes/class-phpass.php';
-    $hasher = new PasswordHash( 8, true );
+    $hasher = new PasswordHash(8, true);
 
     return apply_filters(
       'check_password',
