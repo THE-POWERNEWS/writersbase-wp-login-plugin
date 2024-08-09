@@ -5,7 +5,7 @@ WordPressのパスワードハッシュの手順を置き換えるプラグイ�
 ### 利用手順
 - WordPressの管理画面から、writersbase-wp-login-pluginプラグインを有効にしてください。
 
-### 置き換えられるWordPressメソッド
+### 置き換えられるプラガブルメソッド
 
 #### wp_hash_password
 - [password_hash()](https://www.php.net/manual/ja/function.password-hash.php) を実行します。
